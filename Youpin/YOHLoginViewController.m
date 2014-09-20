@@ -8,6 +8,9 @@
 
 #import "YOHLoginViewController.h"
 #import "YOHRecentViewController.h"
+#import "YOHCollectionViewController.h"
+#import "YOHSearchViewController.h"
+#import "YOHMainViewController.h"
 
 @interface YOHLoginViewController ()
 
@@ -32,11 +35,14 @@
 - (IBAction)loginPressed:(id)sender {
     //do login stuff with Parse
     //if that succeeds, do login stuff with groupon/instagram/yelp if possible
-    UIViewController *presentingvc = self.presentingViewController;
+    YOHMainViewController *presentingvc = self.presentingViewController;
     [self dismissViewControllerAnimated:YES completion:^{
         //this stuff should not show up here - should show up only in main
-        YOHRecentViewController *recentvc = [[YOHRecentViewController alloc] init];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:recentvc];
+        UIPageViewController *pagevc = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+        pagevc.dataSource = presentingvc;
+        pagevc.delegate = presentingvc;
+        [pagevc setViewControllers:@[((YOHMainViewController *)presentingvc).recentvc] direction: UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pagevc];
         [presentingvc presentViewController:nav animated:YES completion:nil];
     }];
     

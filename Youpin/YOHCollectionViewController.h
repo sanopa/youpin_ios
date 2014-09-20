@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YOHCollectionViewController : UIViewController
+@interface YOHCollectionViewController : UICollectionViewController
 
 @end

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YOHMainViewController : UIViewController
+#import "YOHCollectionViewController.h"
+#import "YOHRecentViewController.h"
+#import "YOHSearchViewController.h"
 
+@interface YOHMainViewController : UIViewController
+@property (nonatomic, strong) YOHRecentViewController *recentvc;
+@property (nonatomic, strong) YOHCollectionViewController *collectionvc;
+@property (nonatomic, strong) YOHSearchViewController *searchvc;
 @end

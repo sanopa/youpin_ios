@@ -8,11 +8,15 @@
 
 #import "YOHRecentViewController.h"
 #import "YOHItemViewController.h"
+#import "YOHSearchViewController.h"
+#import "YOHCollectionViewController.h"
 
 @interface YOHRecentViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, copy) NSArray *nearbyData;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *locationButton;
+@property (strong, nonatomic) YOHSearchViewController *searchvc;
+@property (strong, nonatomic) YOHCollectionViewController *collectionvc;
 @end
 
 @implementation YOHRecentViewController
@@ -22,6 +26,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.searchvc = [[YOHSearchViewController alloc] init];
+        self.collectionvc = [[YOHCollectionViewController alloc] init];
     }
     return self;
 }
