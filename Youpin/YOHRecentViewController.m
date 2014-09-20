@@ -10,6 +10,7 @@
 #import "YOHItemViewController.h"
 #import "YOHSearchViewController.h"
 #import "YOHCollectionViewController.h"
+#import "YOHDataFetcher.h"
 
 @interface YOHRecentViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, copy) NSArray *nearbyData;
@@ -35,14 +36,15 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YOHRecentViewCell"];
     
     // Do any additional setup after loading the view from its nib.
-    NSURLRequest *newRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://partner-api.groupon.com/deals.json?tsToken=b371197d636a2e254f5f2c4ab6b09780aa936463&offset=0&limit=3"]];
+    NSURLRequest *newRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://partner-api.groupon.com/deals.json?tsToken=b371197d636a2e254f5f2c4ab6b09780aa936463&offset=0&limit=10"]];
     [NSURLConnection sendAsynchronousRequest:newRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSError *error;
         if (!connectionError) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             if (dict) {
                 self.nearbyData = dict[@"deals"];
-                NSLog(@"%@", self.nearbyData);
+//                NSLog(@"%@", self.nearbyData);
+                [self sortNearbyData];
                 [self.tableView reloadData];
             } else {
                 NSLog(@"%@", error.localizedDescription);
@@ -74,12 +76,38 @@
     [self.navigationController pushViewController:itemvc animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (IBAction)locationChange:(id)sender
 {
-    return 0.1f;
 }
 
-- (IBAction)locationChange:(id)sender {
+- (void)sortNearbyData
+{
+    __block int counter = 0;
+    for (int i = 0; i < [self.nearbyData count]; i++) {
+        [YOHDataFetcher fetchBusinessWithName:self.nearbyData[i][@"merchant"][@"name"] withBlock:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//            NSLog(@"%@", data);
+            if (!connectionError) {
+                NSError *error;
+                NSDictionary *places = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                if (!error && places[@"businesses"]) {
+                    self.nearbyData[i][@"yelp"] = places[@"businesses"][0];
+                    counter++;
+                    if (counter == [self.nearbyData count]) {
+                        NSArray *sortedArray = [self.nearbyData sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                            if (obj1[@"yelp"][@"rating"] > obj2[@"yelp"][@"rating"])
+                                return NSOrderedAscending;
+                            else
+                                return NSOrderedDescending;
+                        }];
+                        self.nearbyData = sortedArray;
+                    }
+                    
+                } else {
+                    NSLog(@"JSON serialization failed on %@", self.nearbyData[i][@"merchant"][@"name"]);
+                }
+            }
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
