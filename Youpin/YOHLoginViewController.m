@@ -35,7 +35,7 @@
 - (IBAction)loginPressed:(id)sender {
     //do login stuff with Parse
     //if that succeeds, do login stuff with groupon/instagram/yelp if possible
-    YOHMainViewController *presentingvc = self.presentingViewController;
+    YOHMainViewController *presentingvc = (YOHMainViewController *)self.presentingViewController;
     [self dismissViewControllerAnimated:YES completion:^{
         //this stuff should not show up here - should show up only in main
         UIPageViewController *pagevc = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];

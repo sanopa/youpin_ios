@@ -15,8 +15,6 @@
 @property (nonatomic, copy) NSArray *nearbyData;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *locationButton;
-@property (strong, nonatomic) YOHSearchViewController *searchvc;
-@property (strong, nonatomic) YOHCollectionViewController *collectionvc;
 @end
 
 @implementation YOHRecentViewController
@@ -26,8 +24,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.searchvc = [[YOHSearchViewController alloc] init];
-        self.collectionvc = [[YOHCollectionViewController alloc] init];
     }
     return self;
 }
@@ -35,6 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"YOHRecentViewCell"];
+    
     // Do any additional setup after loading the view from its nib.
     NSURLRequest *newRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://partner-api.groupon.com/deals.json?tsToken=b371197d636a2e254f5f2c4ab6b09780aa936463&offset=0&limit=3"]];
     [NSURLConnection sendAsynchronousRequest:newRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -53,12 +52,6 @@
             //reached a connection error
         }
     }];
-    UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipedLeft:)];
-    swipeRecognizer.delaysTouchesEnded
-    = YES;
-    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    
-    [self.view addGestureRecognizer:swipeRecognizer];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -68,7 +61,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"YOHRecentViewCell"];
     cell.textLabel.text = self.nearbyData[indexPath.row][@"merchant"][@"name"];
     return cell;
 }
@@ -81,12 +74,12 @@
     [self.navigationController pushViewController:itemvc animated:YES];
 }
 
-- (IBAction)locationChange:(id)sender {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.1f;
 }
 
--(void)swipedLeft:(UISwipeGestureRecognizer *)recognizer
-{
-    NSLog(@"swiped left");
+- (IBAction)locationChange:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning
