@@ -23,6 +23,8 @@
 		EB15766D19CD4482009023CA /* YOHInstaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB15766B19CD4482009023CA /* YOHInstaViewController.xib */; };
 		EB15767119CD4491009023CA /* YOHCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB15766F19CD4491009023CA /* YOHCollectionViewController.m */; };
 		EB15767219CD4491009023CA /* YOHCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB15767019CD4491009023CA /* YOHCollectionViewController.xib */; };
+		EB15767619CD4503009023CA /* YOHRecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB15767419CD4503009023CA /* YOHRecentViewController.m */; };
+		EB15767719CD4503009023CA /* YOHRecentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB15767519CD4503009023CA /* YOHRecentViewController.xib */; };
 		EBBB604C19CD3DEB00F3295C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBB604B19CD3DEB00F3295C /* Foundation.framework */; };
 		EBBB604E19CD3DEB00F3295C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBB604D19CD3DEB00F3295C /* CoreGraphics.framework */; };
 		EBBB605019CD3DEB00F3295C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBB604F19CD3DEB00F3295C /* UIKit.framework */; };
@@ -72,6 +74,9 @@
 		EB15766E19CD4491009023CA /* YOHCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOHCollectionViewController.h; sourceTree = "<group>"; };
 		EB15766F19CD4491009023CA /* YOHCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOHCollectionViewController.m; sourceTree = "<group>"; };
 		EB15767019CD4491009023CA /* YOHCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YOHCollectionViewController.xib; sourceTree = "<group>"; };
+		EB15767319CD4503009023CA /* YOHRecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOHRecentViewController.h; sourceTree = "<group>"; };
+		EB15767419CD4503009023CA /* YOHRecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOHRecentViewController.m; sourceTree = "<group>"; };
+		EB15767519CD4503009023CA /* YOHRecentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YOHRecentViewController.xib; sourceTree = "<group>"; };
 		EBBB604819CD3DEB00F3295C /* Youpin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Youpin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBBB604B19CD3DEB00F3295C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EBBB604D19CD3DEB00F3295C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -152,6 +157,9 @@
 				EB15765019CD4442009023CA /* YOHMainViewController.h */,
 				EB15765119CD4442009023CA /* YOHMainViewController.m */,
 				EB15765219CD4442009023CA /* YOHMainViewController.xib */,
+				EB15767319CD4503009023CA /* YOHRecentViewController.h */,
+				EB15767419CD4503009023CA /* YOHRecentViewController.m */,
+				EB15767519CD4503009023CA /* YOHRecentViewController.xib */,
 				EB15764B19CD4425009023CA /* YOHSearchViewController.h */,
 				EB15764C19CD4425009023CA /* YOHSearchViewController.m */,
 				EB15764D19CD4425009023CA /* YOHSearchViewController.xib */,
@@ -291,6 +299,7 @@
 				EB15765419CD4442009023CA /* YOHMainViewController.xib in Resources */,
 				EB15767219CD4491009023CA /* YOHCollectionViewController.xib in Resources */,
 				EB15766D19CD4482009023CA /* YOHInstaViewController.xib in Resources */,
+				EB15767719CD4503009023CA /* YOHRecentViewController.xib in Resources */,
 				EBBB605E19CD3DEB00F3295C /* Images.xcassets in Resources */,
 				EB15765E19CD4463009023CA /* YOHSettingsViewController.xib in Resources */,
 				EB15765919CD4452009023CA /* YOHLoginViewController.xib in Resources */,
@@ -318,6 +327,7 @@
 				EB15767119CD4491009023CA /* YOHCollectionViewController.m in Sources */,
 				EBBB605819CD3DEB00F3295C /* main.m in Sources */,
 				EBBB605C19CD3DEB00F3295C /* YOHAppDelegate.m in Sources */,
+				EB15767619CD4503009023CA /* YOHRecentViewController.m in Sources */,
 				EB15765319CD4442009023CA /* YOHMainViewController.m in Sources */,
 				EB15765D19CD4463009023CA /* YOHSettingsViewController.m in Sources */,
 				EB15764E19CD4425009023CA /* YOHSearchViewController.m in Sources */,

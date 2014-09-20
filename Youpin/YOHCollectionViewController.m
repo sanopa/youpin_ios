@@ -8,7 +8,7 @@
 
 #import "YOHCollectionViewController.h"
 
-@interface YOHCollectionViewController ()
+@interface YOHCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
 
@@ -27,6 +27,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [UICollectionViewCell new];
 }
 
 - (void)didReceiveMemoryWarning

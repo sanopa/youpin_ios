@@ -8,7 +8,7 @@
 
 #import "YOHSearchViewController.h"
 
-@interface YOHSearchViewController ()
+@interface YOHSearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @end
 
@@ -29,6 +29,15 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [UITableViewCell new];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

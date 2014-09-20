@@ -1,5 +1,5 @@
 //
-//  YOHItemViewController.h
+//  YOHRecentViewController.h
 //  Youpin
 //
 //  Created by Sophia Anopa on 20.09.14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YOHItemViewController : UIViewController
-
-@property (nonatomic, copy) NSDictionary *item;
+@interface YOHRecentViewController : UIViewController
 
 @end

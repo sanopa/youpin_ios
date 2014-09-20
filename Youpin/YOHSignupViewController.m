@@ -29,6 +29,15 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (IBAction)grouponPressed:(id)sender {
+}
+
+- (IBAction)instagramPressed:(id)sender {
+}
+
+- (IBAction)yelpPressed:(id)sender {
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
