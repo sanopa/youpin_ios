@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YOHLoginViewController">
             <connections>
+                <outlet property="passwordField" destination="OMN-8t-J1c" id="lju-d6-mjf"/>
+                <outlet property="usernameField" destination="8kr-1t-rFn" id="9Rl-fe-J5u"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

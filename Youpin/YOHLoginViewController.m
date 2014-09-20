@@ -12,7 +12,11 @@
 #import "YOHSearchViewController.h"
 #import "YOHMainViewController.h"
 
+#import <Parse/Parse.h>
+
 @interface YOHLoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
 
 @end
 
@@ -34,19 +38,21 @@
 }
 - (IBAction)loginPressed:(id)sender {
     //do login stuff with Parse
-    //if that succeeds, do login stuff with groupon/instagram/yelp if possible
-    YOHMainViewController<UIPageViewControllerDelegate, UIPageViewControllerDataSource> *presentingvc =
-        (YOHMainViewController<UIPageViewControllerDataSource,UIPageViewControllerDelegate> *)self.presentingViewController;
-    [self dismissViewControllerAnimated:YES completion:^{
-        //this stuff should not show up here - should show up only in main
-        UIPageViewController *pagevc = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-        pagevc.dataSource = presentingvc;
-        pagevc.delegate = presentingvc;
-        [pagevc setViewControllers:@[((YOHMainViewController *)presentingvc).recentvc] direction: UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pagevc];
-        [presentingvc presentViewController:nav animated:YES completion:nil];
-    }];
-    
+    if (self.usernameField.text && self.passwordField.text && ![self.usernameField.text isEqualToString:@""] && ![self.passwordField.text isEqualToString:@""]) {
+        [PFUser logInWithUsernameInBackground:self.usernameField.text password:self.passwordField.text
+                                        block:^(PFUser *user, NSError *error) {
+                                            if (user) {
+                                                // Do stuff after successful login.
+                                                [self dismissViewControllerAnimated:YES completion:NULL];
+                                            } else {
+                                                // The login failed. Check error to see why.
+                                                NSLog(@"%@", [error localizedDescription]);
+                                                NSLog(@"Login failed using %@, %@", self.usernameField.text, self.passwordField.text);
+                                            }
+                                        }];
+        //if that succeeds, do login stuff with groupon/instagram/yelp if possible
+
+    }
 }
 
 - (void)didReceiveMemoryWarning

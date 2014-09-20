@@ -8,7 +8,11 @@
 
 #import "YOHSignupViewController.h"
 
+#import <Parse/Parse.h>
+
 @interface YOHSignupViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
 
 @end
 
@@ -36,6 +40,21 @@
 }
 
 - (IBAction)yelpPressed:(id)sender {
+}
+
+- (IBAction)signupPressed:(id)sender {
+    PFUser *user = [PFUser user];
+    user.username = self.usernameField.text;
+    user.password = self.passwordField.text;
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            [self dismissViewControllerAnimated:YES completion:NULL];
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            NSLog(@"%@", errorString);
+            NSLog(@"User couldn't sign up with credentials %@, %@", self.usernameField.text, self.passwordField.text);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning

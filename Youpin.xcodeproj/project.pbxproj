@@ -26,6 +26,16 @@
 		EB15767619CD4503009023CA /* YOHRecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB15767419CD4503009023CA /* YOHRecentViewController.m */; };
 		EB15767719CD4503009023CA /* YOHRecentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB15767519CD4503009023CA /* YOHRecentViewController.xib */; };
 		EB15767A19CDCAF9009023CA /* YOHDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EB15767919CDCAF9009023CA /* YOHDataFetcher.m */; };
+		EB15767C19CDE7FB009023CA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15767B19CDE7FB009023CA /* Parse.framework */; };
+		EB15767E19CDE847009023CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15767D19CDE847009023CA /* AudioToolbox.framework */; };
+		EB15768019CDE84C009023CA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15767F19CDE84C009023CA /* CFNetwork.framework */; };
+		EB15768819CDE885009023CA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15768119CDE885009023CA /* CoreLocation.framework */; };
+		EB15768919CDE885009023CA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15768219CDE885009023CA /* libz.dylib */; };
+		EB15768A19CDE885009023CA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15768319CDE885009023CA /* MobileCoreServices.framework */; };
+		EB15768B19CDE885009023CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15768419CDE885009023CA /* QuartzCore.framework */; };
+		EB15768C19CDE885009023CA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15768519CDE885009023CA /* Security.framework */; };
+		EB15768D19CDE885009023CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15768619CDE885009023CA /* StoreKit.framework */; };
+		EB15768E19CDE885009023CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB15768719CDE885009023CA /* SystemConfiguration.framework */; };
 		EBBB604C19CD3DEB00F3295C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBB604B19CD3DEB00F3295C /* Foundation.framework */; };
 		EBBB604E19CD3DEB00F3295C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBB604D19CD3DEB00F3295C /* CoreGraphics.framework */; };
 		EBBB605019CD3DEB00F3295C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBB604F19CD3DEB00F3295C /* UIKit.framework */; };
@@ -80,6 +90,16 @@
 		EB15767519CD4503009023CA /* YOHRecentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YOHRecentViewController.xib; sourceTree = "<group>"; };
 		EB15767819CDCAF9009023CA /* YOHDataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOHDataFetcher.h; sourceTree = "<group>"; };
 		EB15767919CDCAF9009023CA /* YOHDataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOHDataFetcher.m; sourceTree = "<group>"; };
+		EB15767B19CDE7FB009023CA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		EB15767D19CDE847009023CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EB15767F19CDE84C009023CA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EB15768119CDE885009023CA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EB15768219CDE885009023CA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		EB15768319CDE885009023CA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		EB15768419CDE885009023CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EB15768519CDE885009023CA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EB15768619CDE885009023CA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		EB15768719CDE885009023CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EBBB604819CD3DEB00F3295C /* Youpin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Youpin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBBB604B19CD3DEB00F3295C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EBBB604D19CD3DEB00F3295C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,8 +123,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB15768819CDE885009023CA /* CoreLocation.framework in Frameworks */,
+				EB15768919CDE885009023CA /* libz.dylib in Frameworks */,
+				EB15768A19CDE885009023CA /* MobileCoreServices.framework in Frameworks */,
+				EB15768B19CDE885009023CA /* QuartzCore.framework in Frameworks */,
+				EB15768C19CDE885009023CA /* Security.framework in Frameworks */,
+				EB15768D19CDE885009023CA /* StoreKit.framework in Frameworks */,
+				EB15768E19CDE885009023CA /* SystemConfiguration.framework in Frameworks */,
 				EBBB604E19CD3DEB00F3295C /* CoreGraphics.framework in Frameworks */,
+				EB15768019CDE84C009023CA /* CFNetwork.framework in Frameworks */,
+				EB15767E19CDE847009023CA /* AudioToolbox.framework in Frameworks */,
 				EBBB605019CD3DEB00F3295C /* UIKit.framework in Frameworks */,
+				EB15767C19CDE7FB009023CA /* Parse.framework in Frameworks */,
 				EBBB604C19CD3DEB00F3295C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +174,16 @@
 		EBBB604A19CD3DEB00F3295C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB15768119CDE885009023CA /* CoreLocation.framework */,
+				EB15768219CDE885009023CA /* libz.dylib */,
+				EB15768319CDE885009023CA /* MobileCoreServices.framework */,
+				EB15768419CDE885009023CA /* QuartzCore.framework */,
+				EB15768519CDE885009023CA /* Security.framework */,
+				EB15768619CDE885009023CA /* StoreKit.framework */,
+				EB15768719CDE885009023CA /* SystemConfiguration.framework */,
+				EB15767F19CDE84C009023CA /* CFNetwork.framework */,
+				EB15767D19CDE847009023CA /* AudioToolbox.framework */,
+				EB15767B19CDE7FB009023CA /* Parse.framework */,
 				EBBB604B19CD3DEB00F3295C /* Foundation.framework */,
 				EBBB604D19CD3DEB00F3295C /* CoreGraphics.framework */,
 				EBBB604F19CD3DEB00F3295C /* UIKit.framework */,
@@ -454,6 +494,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Youpin/Youpin-Prefix.pch";
 				INFOPLIST_FILE = "Youpin/Youpin-Info.plist";
@@ -467,6 +511,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Youpin/Youpin-Prefix.pch";
 				INFOPLIST_FILE = "Youpin/Youpin-Info.plist";

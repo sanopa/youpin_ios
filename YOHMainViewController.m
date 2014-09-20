@@ -9,9 +9,12 @@
 #import "YOHMainViewController.h"
 #import "YOHLoginViewController.h"
 #import "YOHSignupViewController.h"
+#import "YOHSettingsViewController.h"
+
+#import <Parse/Parse.h>
 
 @interface YOHMainViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
-
+@property (nonatomic, strong) UINavigationController *nav;
 @end
 
 @implementation YOHMainViewController
@@ -36,10 +39,19 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    //if user logged in
-    if (false) {
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.collectionvc];
-        [self presentViewController:nav animated:YES completion:nil];
+    [super viewDidAppear:animated];
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        // do stuff with the user
+        UIPageViewController *pagevc = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+        pagevc.dataSource = self;
+        pagevc.delegate = self;
+        [pagevc setViewControllers:@[self.recentvc] direction: UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        self.nav = [[UINavigationController alloc] initWithRootViewController:pagevc];
+        pagevc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(settingsPressed:)];
+        [self presentViewController:self.nav animated:YES completion:nil];
+    } else {
+        // show the signup or login screen
     }
 
 }
@@ -83,6 +95,11 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
     
+}
+
+- (void)settingsPressed:(id)sender
+{
+    [self.nav pushViewController:[[YOHSettingsViewController alloc] init] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

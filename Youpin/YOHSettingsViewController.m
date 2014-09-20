@@ -8,6 +8,8 @@
 
 #import "YOHSettingsViewController.h"
 
+#import <Parse/Parse.h>
+
 @interface YOHSettingsViewController ()
 
 @end
@@ -27,6 +29,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+- (IBAction)logoutPressed:(id)sender
+{
+    [PFUser logOut];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning

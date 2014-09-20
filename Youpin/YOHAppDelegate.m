@@ -8,6 +8,7 @@
 
 #import "YOHAppDelegate.h"
 #import "YOHMainViewController.h"
+#import <Parse/Parse.h>
 
 @implementation YOHAppDelegate
 
@@ -15,6 +16,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    [Parse setApplicationId:@"dsACIwhIkiSpEV73fTJ90sWvSXtJThbrqRSOtkq7"
+                  clientKey:@"aOXUDaXS9iY3990d1d5ttUR8HLaQxUcVPZx9GBbH"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     self.window.rootViewController = [[YOHMainViewController alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
